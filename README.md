@@ -2,7 +2,7 @@
 
 A modern, responsive portfolio website showcasing skills, projects, and professional information with interactive UI elements and contact form integration.
 
-![Portfolio Preview](static/image.png)
+![Portfolio Preview](pesonalportdeploy/static/image.png)
 
 ## 🌟 Features
 
@@ -343,4 +343,5 @@ This project is open source and available for personal and educational use.
 **⭐ Star this repo if you found it helpful!**
 
 Last Updated: November 2025
+
 
