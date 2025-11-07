@@ -55,16 +55,17 @@ A modern, responsive portfolio website showcasing skills, projects, and professi
 ## 📁 Project Structure
 
 ```
+
 personalpotfolio web/
-├── port2.html          # Main portfolio page
+  ├── port2.html          # Main portfolio page
+  static            
+    ├── resume.html         # Printable resume page
+    ├── background.jpg      # Background image
+    ├── p.jpg               # Profile photo
+    ├── home_page_sct.jpg   # Project 1 screenshot
+    ├── image.png           # Project 2 screenshot
+    └── (other assets)
 ├── README.md           # This file
-static            
-  ├── resume.html         # Printable resume page
-  ├── background.jpg      # Background image
-  ├── p.jpg               # Profile photo
-  ├── home_page_sct.jpg   # Project 1 screenshot
-  ├── image.png           # Project 2 screenshot
-  └── (other assets)
 ```
 
 ## 🚀 Getting Started
@@ -343,5 +344,6 @@ This project is open source and available for personal and educational use.
 **⭐ Star this repo if you found it helpful!**
 
 Last Updated: November 2025
+
 
 
