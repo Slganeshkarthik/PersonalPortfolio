@@ -1,0 +1,1330 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio | Ganesh Karthik SL</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;600;700&display=swap"
+    rel="stylesheet">
+
+  <style>
+    /* ---------- Global Styles & Variables ---------- */
+    :root {
+      --bg-dark: #f4eaeaf2;
+      --bg-slate: #e2e8f0;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --accent-cyan: #C4522A;
+      --accent-cyan-glow: rgba(14, 165, 233, 0.3);
+      --accent-purple: #C4522A;
+      --glass-bg: rgba(255, 255, 255, 0.401);
+      --glass-border: rgba(0, 0, 0, 0.1);
+      --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.05);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: radial-gradient(circle at top right, var(--bg-slate), var(--bg-dark));
+      background-size: cover;
+      background-attachment: fixed;
+      color: var(--text-main);
+      font-family: 'Inter', sans-serif;
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    .brand-font {
+      font-family: 'Outfit', sans-serif;
+    }
+
+    a {
+      text-decoration: none;
+      color: var(--accent-cyan);
+      transition: all 0.3s ease;
+    }
+
+    a:hover {
+      color: var(--accent-purple);
+    }
+
+    .glass-panel {
+      background: var(--glass-bg);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--glass-border);
+      box-shadow: var(--glass-shadow);
+      border-radius: 16px;
+    }
+
+    /* ---------- Typography Utilities ---------- */
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+      position: relative;
+      display: inline-block;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: transparent;
+      background: linear-gradient(90deg, var(--accent-cyan), var(--accent-purple));
+      -webkit-background-clip: text;
+      background-clip: text;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      width: 50%;
+      height: 3px;
+      bottom: -10px;
+      left: 0;
+      background: var(--accent-cyan);
+      border-radius: 2px;
+    }
+
+    /* ---------- Navigation ---------- */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      height: 70px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 5%;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--glass-border);
+      transition: all 0.3s ease;
+    }
+
+    .nav-brand {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      letter-spacing: 1px;
+    }
+
+    .nav-brand svg {
+      flex-shrink: 0;
+    }
+
+    .nav-links-container {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      font-weight: 500;
+      text-transform: lowercase;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -4px;
+      left: 0;
+      background-color: var(--accent-cyan);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent-cyan);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-divider {
+      width: 1px;
+      height: 20px;
+      background: rgba(0, 0, 0, 0.15);
+    }
+
+    .nav-socials {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+    }
+
+    .nav-socials a {
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: color 0.3s ease;
+    }
+
+    .nav-socials a:hover {
+      color: var(--text-main);
+    }
+
+    /* ---------- Hero Section ---------- */
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 100vh;
+      padding: 100px 5% 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+      gap: 2rem;
+    }
+
+    .hero-content {
+      flex: 1;
+      animation: fadeUp 1s ease forwards;
+    }
+
+    .hero-greeting {
+      font-size: 1.25rem;
+      color: var(--accent-cyan);
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
+    .hero-title {
+      font-size: 4rem;
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+      color: var(--text-main);
+    }
+
+    .hero-subtitle {
+      font-size: 2rem;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+      font-family: 'Outfit', sans-serif;
+    }
+
+    .hero-subtitle span {
+      color: var(--accent-purple);
+      position: relative;
+      display: inline-block;
+    }
+
+    .hero-image-container {
+      flex-shrink: 0;
+      width: 320px;
+      height: 350px;
+      border-radius: 50%;
+      padding: 10px;
+      background: rgba(255, 255, 255, 0.8);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+      border: 1px solid var(--glass-border);
+      position: relative;
+      animation: float 6s ease-in-out infinite, fadeUp 1s 0.2s ease forwards;
+      opacity: 0;
+    }
+
+    .hero-image-container::before {
+      content: '';
+      position: absolute;
+      inset: -10px;
+      border-radius: 50%;
+      background: linear-gradient(45deg, var(--accent-cyan-glow), rgba(99, 102, 241, 0.2));
+      filter: blur(25px);
+      opacity: 0.8;
+      z-index: -1;
+    }
+
+    .hero-image {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    /* ---------- Buttons ---------- */
+    .btn {
+      display: inline-block;
+      padding: 0.8rem 1.8rem;
+      border-radius: 8px;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 600;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+      border: none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(90deg, var(--accent-cyan), var(--accent-purple));
+      color: white;
+      box-shadow: 0 4px 15px var(--accent-cyan-glow);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px var(--accent-cyan-glow);
+      color: white;
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--text-main);
+      border: 2px solid var(--accent-cyan);
+    }
+
+    .btn-outline:hover {
+      background: var(--accent-cyan);
+      color: var(--bg-dark);
+      box-shadow: 0 4px 15px var(--accent-cyan-glow);
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    /* ---------- Layout Sections ---------- */
+    section {
+      padding: 100px 5%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* ---------- About Section ---------- */
+    .about-text {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+      max-width: 800px;
+    }
+
+    .highlight {
+      color: var(--accent-purple);
+      font-weight: 500;
+    }
+
+    .interests-list {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .interests-list li {
+      background: rgba(6, 182, 212, 0.1);
+      border: 1px solid rgba(6, 182, 212, 0.2);
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      color: var(--accent-cyan);
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+    }
+
+    .interests-list li:hover {
+      background: rgba(6, 182, 212, 0.2);
+      transform: translateY(-2px);
+    }
+
+    /* ---------- Education Section ---------- */
+    .timeline {
+      position: relative;
+      padding-left: 2rem;
+      border-left: 2px solid var(--glass-border);
+      margin-top: 2rem;
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 2rem;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -2.4rem;
+      top: 0;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--accent-cyan);
+      border: 3px solid var(--bg-dark);
+      box-shadow: 0 0 10px var(--accent-cyan-glow);
+    }
+
+    .timeline-title {
+      font-size: 1.25rem;
+      color: var(--text-main);
+      margin-bottom: 0.25rem;
+    }
+
+    .timeline-subtitle {
+      color: var(--accent-purple);
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
+
+    .timeline-date {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 0.2rem 0.8rem;
+      border-radius: 12px;
+      display: inline-block;
+    }
+
+    /* ---------- React Skills Section ---------- */
+    .react-skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .react-skill-card {
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+      break-inside: avoid;
+      padding: 2rem;
+      transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease, border-color 0.4s ease, opacity 0.6s ease;
+      opacity: 0;
+      transform: translateY(30px);
+      position: relative;
+      overflow: hidden;
+      border-radius: 16px;
+    }
+
+    .react-skill-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .react-skill-card:hover {
+      transform: translateY(-8px) scale(1.02) !important;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+      border-color: rgba(6, 182, 212, 0.4);
+    }
+
+    .react-skill-category {
+      font-size: 1.2rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: transparent;
+      background: linear-gradient(90deg, var(--text-main), var(--accent-cyan));
+      -webkit-background-clip: text;
+      background-clip: text;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.8rem;
+      border-bottom: 1px solid var(--glass-border);
+      font-family: 'Outfit', sans-serif;
+    }
+
+    .react-skill-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      flex-grow: 1;
+    }
+
+    .react-skill-list li {
+      padding: 0.6rem 0;
+      color: var(--text-muted);
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    .react-skill-card:hover .react-skill-list li {
+      color: var(--text-main);
+    }
+
+    .skill-bullet {
+      color: var(--accent-cyan);
+      margin-right: 0.8rem;
+      font-size: 1.2rem;
+      transition: transform 0.3s ease;
+    }
+
+    .react-skill-card:hover .skill-bullet {
+      transform: translateX(4px);
+      color: var(--accent-purple);
+    }
+
+    .skill-card-hover {
+      position: absolute;
+      inset: 0;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(4px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+      opacity: 0;
+      transition: all 0.4s ease;
+      color: var(--text-main);
+      font-weight: 500;
+      transform: translateY(20px);
+      z-index: 10;
+    }
+
+    .cert-icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: var(--accent-cyan);
+    }
+
+    .react-skill-card:hover .skill-card-hover {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .react-badges-container.visible {
+      opacity: 1 !important;
+      transform: translateY(0) !important;
+    }
+
+    /* Badges */
+    .badges-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      justify-content: center;
+      margin-bottom: 3rem;
+    }
+
+    .skill-badge {
+      background: linear-gradient(135deg, rgba(0, 0, 0, 0.03), rgba(0, 0, 0, 0.01));
+      border: 1px solid var(--glass-border);
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      color: var(--text-main);
+      transition: all 0.3s ease;
+    }
+
+    .skill-badge:hover {
+      background: rgba(6, 182, 212, 0.1);
+      border-color: var(--accent-cyan);
+      color: var(--accent-cyan);
+      transform: translateY(-2px);
+    }
+
+    /* ---------- Projects Section ---------- */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 2rem;
+    }
+
+    .project-card {
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+      border-color: rgba(139, 92, 246, 0.3);
+    }
+
+    .project-img-wrapper {
+      height: 250px;
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .project-img-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      /* Changed from cover to contain to fit properly */
+      transition: transform 0.5s ease;
+    }
+
+    .project-card:hover .project-img-wrapper img {
+      transform: scale(1.05);
+    }
+
+    .project-img-wrapper::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, var(--bg-slate), transparent);
+      opacity: 0.8;
+    }
+
+    .project-content {
+      padding: 1.5rem;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      background: var(--glass-bg);
+    }
+
+    .project-title {
+      font-size: 1.4rem;
+      color: var(--text-main);
+      margin-bottom: 0.8rem;
+    }
+
+    .project-desc {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+      flex-grow: 1;
+    }
+
+    .project-links {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .project-links .btn {
+      padding: 0.5rem 1rem;
+      font-size: 0.85rem;
+    }
+
+    /* ---------- Experience Section ---------- */
+    .experience-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 2rem;
+    }
+
+    .experience-card {
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .experience-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+      border-color: rgba(139, 92, 246, 0.3);
+    }
+
+    .experience-img-wrapper {
+      height: 250px;
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .experience-img-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      transition: transform 0.5s ease;
+    }
+
+    .experience-card:hover .experience-img-wrapper img {
+      transform: scale(1.05);
+    }
+
+    .experience-img-wrapper::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, var(--bg-slate), transparent);
+      opacity: 0.8;
+    }
+
+    .experience-content {
+      padding: 1.5rem;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      background: var(--glass-bg);
+    }
+
+    .experience-title {
+      font-size: 1.4rem;
+      color: var(--text-main);
+      margin-bottom: 0.8rem;
+    }
+
+    .experience-desc {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+      flex-grow: 1;
+    }
+
+    .experience-links {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .experience-links .btn {
+      padding: 0.5rem 1rem;
+      font-size: 0.85rem;
+    }
+
+    /* ---------- Resume & Contact Sections ---------- */
+    .centered-panel {
+      text-align: center;
+      padding: 3rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .centered-panel p {
+      margin-bottom: 2rem;
+      color: var(--text-muted);
+      font-size: 1.1rem;
+    }
+
+    .resume-note {
+      font-size: 0.85rem !important;
+      opacity: 0.7;
+      margin-top: 2rem;
+    }
+
+    .contact-form {
+      display: grid;
+      gap: 1.5rem;
+      text-align: left;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .form-group label {
+      color: var(--text-main);
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    .form-control {
+      background: rgba(255, 255, 255, 0.6);
+      border: 1px solid var(--glass-border);
+      padding: 1rem;
+      border-radius: 8px;
+      color: var(--text-main);
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      outline: none;
+    }
+
+    .form-control:focus {
+      border-color: var(--accent-cyan);
+      box-shadow: 0 0 10px rgba(6, 182, 212, 0.2);
+    }
+
+    textarea.form-control {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    .error-msg {
+      color: #ef4444;
+      font-size: 0.85rem;
+      display: none;
+    }
+
+    .alert {
+      padding: 1rem;
+      border-radius: 8px;
+      margin-bottom: 1.5rem;
+      display: none;
+      font-weight: 500;
+    }
+
+    .alert-success {
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      color: #34d399;
+    }
+
+    .alert-error {
+      background: rgba(239, 68, 68, 0.1);
+      border: 1px solid rgba(239, 68, 68, 0.3);
+      color: #f87171;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--glass-border);
+    }
+
+    .social-links a {
+      font-weight: 500;
+      color: var(--text-muted);
+    }
+
+    .social-links a:hover {
+      color: var(--accent-cyan);
+    }
+
+    /* ---------- Animations & Media Queries ---------- */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0px);
+      }
+
+      50% {
+        transform: translateY(-20px);
+      }
+
+      100% {
+        transform: translateY(0px);
+      }
+    }
+
+    /* Scroll animations classes */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s ease-out;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        flex-direction: column-reverse;
+        text-align: center;
+        padding-top: 120px;
+      }
+
+      .hero-title {
+        font-size: 3rem;
+      }
+
+      .hero-image-container {
+        width: 250px;
+        height: 250px;
+      }
+
+      .btn-group {
+        justify-content: center;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links-container {
+        display: none;
+      }
+
+      /* Simple mobile menu fallback */
+      .section-title {
+        font-size: 2rem;
+      }
+
+      section {
+        padding: 80px 5%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-brand">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="#ea580c" xmlns="http://www.w3.org/2000/svg">
+        <rect x="2" y="2" width="6" height="6" />
+        <rect x="10" y="2" width="6" height="6" />
+        <rect x="10" y="10" width="6" height="6" />
+        <rect x="18" y="10" width="6" height="6" />
+        <rect x="2" y="18" width="6" height="6" />
+      </svg>
+      Ganesh Karthik SL
+    </div>
+    <div class="nav-links-container">
+      <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#experience">experience</a>
+        <a href="#projects">projects</a>
+        <a href="#skills">skills</a>
+        <a href="#about">about me</a>
+        <a href="#contact">contact</a>
+      </div>
+      <div class="nav-divider"></div>
+      <div class="nav-socials">
+        <a href="https://github.com/Slganeshkarthik" target="_blank" rel="noopener" aria-label="GitHub">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path
+              d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+            </path>
+          </svg>
+        </a>
+        <a href="https://www.linkedin.com/in/ganeshkarthik-sl-784862331/" target="_blank" rel="noopener"
+          aria-label="LinkedIn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+            <rect x="2" y="9" width="4" height="12"></rect>
+            <circle cx="4" cy="4" r="2"></circle>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <span class="hero-greeting">Hello, I'm</span>
+      <h1 class="hero-title">Ganesh Karthik SL</h1>
+      <h2 class="hero-subtitle">I'm a <span>Python</span> Developer</h2>
+      <div class="btn-group">
+        <a href="#contact" class="btn btn-primary">Get In Touch</a>
+        <a href="#projects" class="btn btn-outline">View Work</a>
+      </div>
+    </div>
+    <div class="hero-image-container">
+      <img src="static/p.png" alt="Ganesh Karthik SL" class="hero-image">
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="reveal">
+    <h2 class="section-title">About Me</h2>
+    <p class="about-text">
+      I am a passionate and highly driven computer science student. My enthusiasm for technology and designing has
+      driven me to explore and excel in various aspects of the tech field.
+      <br><br>
+      I firmly believe that the intersection of passion and hard work is where true potential is realized. This belief
+      has led me to explore various facets of the TECH field, allowing me to develop a robust foundation in <span
+        class="highlight">Python Backend development</span>, <span class="highlight">Artificial Intelligence</span>, and
+      <span class="highlight">Machine Learning</span>.
+      <br><br>
+      I am ready to embrace new challenges and seize opportunities for growth and innovation.
+    </p>
+
+    <h3 style="margin-top: 3rem; margin-bottom: 1rem; color: var(--text-main); font-weight: 500;">Core Interests</h3>
+    <ul class="interests-list">
+      <li>Artificial Intelligence & Machine Learning</li>
+      <li>Python Backend Development</li>
+      <li>Clean UI/UX & Interactive Web Experiences</li>
+    </ul>
+
+    <!-- Education Sub-section -->
+    <h3 style="margin-top: 4rem; margin-bottom: 1rem; color: var(--text-main); font-weight: 500;">Education</h3>
+    <div class="timeline">
+      <div class="timeline-item">
+        <h4 class="timeline-title">Bachelor of Engineering in Computer Science Engineering</h4>
+        <div class="timeline-subtitle">Dayananda Sagar College of Engineering (DSCE)</div>
+        <div class="timeline-date">2nd Year (2024 - 2028)</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="reveal">
+    <h2 class="section-title">Skills & Expertise</h2>
+
+    <div id="react-skills-root"></div>
+  </section>
+  <!-- Experience Section -->
+  <section id="experience" class="reveal">
+    <h2 class="section-title">Experience</h2>
+    <div class="experience-grid">
+      <div class="glass-panel experience-card">
+        <div class="experience-img-wrapper">
+          <img src="static/hackathon.png" alt="certificate">
+        </div>
+        <div class="experience-content">
+          <h4 class="experience-title">Bit N build Hackathon</h4>
+          <p class="experience-desc">Participated in the Bit N build Hackathon and developed a project called money
+            administration system .</p>
+          <div class="experience-links">
+            <a class="btn btn-primary" href="" target="_blank" rel="noopener noreferrer">GITHUB</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="reveal">
+    <h2 class="section-title">Featured Projects</h2>
+
+    <div class="projects-grid">
+      <!-- Project 1 -->
+      <div class="glass-panel project-card">
+        <div class="project-img-wrapper">
+          <img src="static/home_page_sct.jpg" alt="Trash To Cash Screenshot"
+            onerror="this.src='https://via.placeholder.com/400x200/0f172a/06b6d4?text=Trash+To+Cash'">
+        </div>
+        <div class="project-content">
+          <h4 class="project-title">Trash To Cash</h4>
+          <p class="project-desc">Eco-initiative rewarding users for recycling waste and tracking contributions.</p>
+          <div class="project-links">
+            <a class="btn btn-primary" href="https://github.com/Slganeshkarthik/Trash_to_Cash" target="_blank"
+              rel="noopener noreferrer">GitHub</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="glass-panel project-card">
+        <div class="project-img-wrapper">
+          <img src="static/agriConnect.png" alt="agriConnect Screenshot"
+            onerror="this.src='https://via.placeholder.com/400x200/0f172a/8b5cf6?text=agriConnect'">
+        </div>
+        <div class="project-content">
+          <h4 class="project-title">agriConnect</h4>
+          <p class="project-desc">A platform for farmers to connect, share knowledge, experiences, products, and contact
+            dealers.</p>
+          <div class="project-links">
+            <a class="btn btn-primary" href="https://github.com/Slganeshkarthik/AgriConnect" target="_blank"
+              rel="noopener noreferrer">GitHub</a>
+            <a class="btn btn-outline" href="https://agriconnect-gksl-git-main-slganeshkarthiks-projects.vercel.app/"
+              target="_blank" rel="noopener noreferrer">Live Demo</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="glass-panel project-card">
+        <div class="project-img-wrapper">
+          <img src="static/image.png" alt="Portfolio Site"
+            onerror="this.src='https://via.placeholder.com/400x200/0f172a/f8fafc?text=Portfolio'">
+        </div>
+        <div class="project-content">
+          <h4 class="project-title">Portfolio Site</h4>
+          <p class="project-desc">Responsive personal portfolio showcasing skills and projects with a premium dark UI,
+            glassmorphism, and modern animations.</p>
+          <div class="project-links">
+            <a class="btn btn-primary" href="#home">View Top</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Resume Section -->
+  <section id="resume" class="reveal">
+    <h2 class="section-title">Resume</h2>
+    <div class="glass-panel centered-panel">
+      <p>Interested in learning more about my experience and qualifications? You can view or download my resume below.
+      </p>
+      <div class="btn-group" style="justify-content: center;">
+        <a class="btn btn-primary" href="static/resume.html" target="_blank" rel="noopener">View Resume</a>
+        <a class="btn btn-outline"
+          href="https://drive.google.com/file/d/1iy6wQVGta-BzkNyTH_WcZsavL3FXw8k-/view?usp=drive_link" target="_blank"
+          rel="noopener">Download PDF</a>
+      </div>
+      <p class="resume-note">Note: If these links don't point to the latest file, replace the file ID in the URL with
+        your resume's Google Drive file ID.</p>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="reveal">
+    <h2 class="section-title">Get In Touch</h2>
+    <div class="glass-panel centered-panel">
+      <p>I'd love to connect! Whether you have a question or just want to say hi, I'll try my best to get back to you.
+      </p>
+
+      <div id="form-alert" class="alert"></div>
+
+      <form id="contactForm" class="contact-form" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" class="form-control" placeholder="John Doe" required />
+            <div class="error-msg" id="err-name">Name is required.</div>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" class="form-control" placeholder="john@example.com" required />
+            <div class="error-msg" id="err-email">Valid email is required.</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" class="form-control" placeholder="Your message here..."
+            required></textarea>
+          <div class="error-msg" id="err-message">Message must be at least 10 characters.</div>
+        </div>
+        <div style="text-align: center; margin-top: 1rem;">
+          <button type="submit" class="btn btn-primary">Send Message</button>
+        </div>
+      </form>
+
+      <div class="social-links">
+        <a href="mailto:slganeshkarthik@gamil.com">Email Me</a>
+        <a href="https://github.com/Slganeshkarthik" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/ganeshkarthik-sl-784862331/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- React and Babel Scripts -->
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script>
+    // Initialize EmailJS
+    emailjs.init('eGnljuifPkITJp0wh');
+
+    // Scroll Reveal Animation Configuration
+    const revealElements = document.querySelectorAll('.reveal');
+    const revealCallback = (entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+
+
+
+          observer.unobserve(entry.target);
+        }
+      });
+    };
+
+    const revealObserver = new IntersectionObserver(revealCallback, {
+      threshold: 0.15,
+      rootMargin: "0px 0px -50px 0px"
+    });
+
+    revealElements.forEach(el => revealObserver.observe(el));
+
+    // Contact form validation & submission
+    const form = document.getElementById('contactForm');
+    const alertBox = document.getElementById('form-alert');
+
+    function showError(id, show) {
+      const el = document.getElementById(id);
+      if (el) el.style.display = show ? 'block' : 'none';
+
+      const input = document.getElementById(id.replace('err-', ''));
+      if (input) {
+        input.style.borderColor = show ? '#ef4444' : '';
+      }
+    }
+
+    function validateEmail(email) {
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    }
+
+    form.addEventListener('submit', function (ev) {
+      ev.preventDefault();
+      let ok = true;
+      const name = form.name.value.trim();
+      const email = form.email.value.trim();
+      const message = form.message.value.trim();
+
+      if (!name) { showError('err-name', true); ok = false; } else showError('err-name', false);
+      if (!validateEmail(email)) { showError('err-email', true); ok = false; } else showError('err-email', false);
+      if (!message || message.length < 10) { showError('err-message', true); ok = false; } else showError('err-message', false);
+
+      if (!ok) return;
+
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const originalText = submitBtn.textContent;
+      submitBtn.textContent = 'Sending...';
+      submitBtn.disabled = true;
+
+      emailjs.send('service_voriexv', 'template_4xzb2ng', {
+        from_name: name,
+        reply_to: email,
+        message: message
+      }).then(() => {
+        alertBox.className = 'alert alert-success';
+        alertBox.textContent = 'Message sent successfully! I will get back to you soon.';
+        alertBox.style.display = 'block';
+        form.reset();
+        setTimeout(() => alertBox.style.display = 'none', 5000);
+      }).catch((err) => {
+        console.error('EmailJS Error:', err);
+        alertBox.className = 'alert alert-error';
+        alertBox.textContent = 'Failed to send message. Please try again.';
+        alertBox.style.display = 'block';
+      }).finally(() => {
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+      });
+    });
+  </script>
+
+  <script type="text/babel">
+    const SkillsApp = () => {
+      const skillsData = [
+        {
+          category: "Python Development",
+          link: "https://drive.google.com/open?id=1pv-lYwcyttQrALHXvq7cJgdzW58c6JSb&usp=drive_fs",
+          skills: ["Pandas", "Numpy", "Flask", "SQLite"],
+          description: "I am a Python enthusiast with a strong commitment to creating exceptional digital experiences."
+        },
+        {
+          category: "Web Development",
+          link: "https://github.com/Slganeshkarthik/Trash_to_Cash",
+          skills: ["HTML5", "CSS3", "JavaScript"],
+          description: "I have hands-on experience in front-end web development."
+        },
+        {
+          category: "C Programming",
+          link: "https://drive.google.com/file/d/1Wy8PR54GnPS3hlOFyRV_2OtT6UMQFyRI/view?usp=drivesdk",
+          skills: ["Proficient in C programming and logic building"],
+          description: "I have a good foundation in C programming and logic building."
+        }
+      ];
+
+      const badges = ["Python", "Pandas", "NumPy", "Flask", "SQLite", "HTML5", "CSS3", "JavaScript", "C", "Git"];
+
+      React.useEffect(() => {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
+
+        document.querySelectorAll('.react-skill-card, .react-badges-container').forEach(el => {
+          observer.observe(el);
+        });
+
+        return () => observer.disconnect();
+      }, []);
+
+      return (
+        <div>
+          <div className="react-skills-grid">
+            {skillsData.map((group, index) => (
+              <a
+                key={index}
+                href={group.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="glass-panel react-skill-card"
+                style={{ transitionDelay: `${index * 0.1}s` }}
+              >
+                <h3 className="react-skill-category">{group.category}</h3>
+                <ul className="react-skill-list">
+                  {group.skills.map((skill, idx) => (
+                    <li key={idx}>
+                      <span className="skill-bullet">▹</span> {skill}
+                    </li>
+                  ))}
+                </ul>
+                <div className="skill-card-hover">
+                  <div className="cert-icon">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <circle cx="12" cy="8" r="7"></circle>
+                      <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+                    </svg>
+                  </div>
+                  <p>View Credentials</p>
+                  <p style={{ fontSize: '0.85rem', marginTop: '0.5rem', opacity: 0.8 }}>{group.description}</p>
+                </div>
+              </a>
+            ))}
+          </div>
+
+          <div style={{ marginTop: '3rem' }}>
+            <div className="badges-container react-badges-container" style={{ opacity: 0, transform: 'translateY(20px)', transition: 'all 0.6s ease', transitionDelay: '0.4s' }}>
+              {badges.map((badge, idx) => (
+                <span key={idx} className="skill-badge">{badge}</span>
+              ))}
+            </div>
+          </div>
+        </div>
+      );
+    };
+
+    const rootElement = document.getElementById('react-skills-root');
+    if (rootElement) {
+      const root = ReactDOM.createRoot(rootElement);
+      root.render(<SkillsApp />);
+    }
+  </script>
+</body>
+
+</html>
